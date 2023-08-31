@@ -5,8 +5,6 @@ import { Inter, Sora } from 'next/font/google';
 import TopLeftImg from '@/components/TopLeftImg';
 import Nav from '@/components/Nav';
 import Header from '@/components/Header';
-import { AnimatePresence, motion } from 'framer-motion';
-import { usePathname } from 'next/navigation';
 import Transition from '@/components/Transition';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -25,23 +23,23 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const pathname = usePathname();
+  // const pathname = usePathname();
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AnimatePresence mode="wait">
-          <Transition />
-          <motion.div className="h-full">
-            <div
-              className={`page bg-site text-white bg-cover bg-no-repeat ${sora.variable} font-sora relative`}
-            >
-              <TopLeftImg />
-              <Nav />
-              <Header />
-              {children}
-            </div>
-          </motion.div>
-        </AnimatePresence>
+        {/* <AnimatePresence mode="wait"> */}
+        <Transition />
+        <div className="h-full">
+          <div
+            className={`page bg-site text-white bg-cover bg-no-repeat ${sora.variable} font-sora relative`}
+          >
+            <TopLeftImg />
+            <Nav />
+            <Header />
+            {children}
+          </div>
+        </div>
+        {/* </AnimatePresence> */}
       </body>
     </html>
   );

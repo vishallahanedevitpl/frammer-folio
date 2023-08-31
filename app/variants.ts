@@ -24,3 +24,12 @@ export const fadeIn = (direction: string, delay: number) => {
     },
   };
 };
+
+export const hoverScale = {
+  scale: 1.3,
+  transition: { duration: '300ms' },
+};
+
+export const tapScale = {
+  scale: 0.9,
+};
