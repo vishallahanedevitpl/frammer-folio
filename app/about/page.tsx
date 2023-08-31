@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   FaHtml5,
   FaCss3,
@@ -16,7 +16,7 @@ import {
   SiAdobephotoshop,
 } from 'react-icons/si';
 
-import { motion } from 'framer-motion';
+import { motion, useAnimate } from 'framer-motion';
 
 import Avatar from '@/components/Avatar';
 import Circles from '@/components/Circles';
@@ -95,6 +95,11 @@ const aboutData = [
 ];
 export default function About() {
   const [index, setIndex] = useState(0);
+  const [scope, animate] = useAnimate();
+
+  useEffect(() => {
+    animate(scope.current, { x: [-80, 0] }, { duration: 0.4 });
+  }, [index]);
 
   return (
     <div className="h-full bg-primary/30 py-32 text-center xl:text-left">
@@ -186,9 +191,10 @@ export default function About() {
             {aboutData.map((item, itemIndex) => (
               <div
                 key={itemIndex + 'title'}
-                className={`cursor-pointer capitalize xl:text-lg relative after:w-8 after:h-[2px] after:bg-white after:absolute after:-bottom-1 after:left-0 ${
-                  index === itemIndex &&
-                  'text-accent after:w-full after:bg-accent after:transition-all after:duration-300'
+                className={`cursor-pointer capitalize xl:text-lg relative after:w-8 after:h-[2px]  after:absolute after:-bottom-1 after:left-0 ${
+                  index === itemIndex
+                    ? 'text-accent after:w-full after:bg-accent after:transition-all after:duration-300'
+                    : 'after:bg-white'
                 }`}
                 onClick={() => setIndex(itemIndex)}
               >
@@ -196,7 +202,10 @@ export default function About() {
               </div>
             ))}
           </div>
-          <div className="py-2 xl:py-6 flex flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start">
+          <div
+            ref={scope}
+            className="py-2 xl:py-6 flex flex-col gap-y-2 xl:gap-y-4 items-center xl:items-start"
+          >
             {aboutData[index].info.map((item, itemIndex) => (
               <div
                 key={itemIndex + 'info'}
