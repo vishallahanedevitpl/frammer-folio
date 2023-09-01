@@ -33,3 +33,13 @@ export const hoverScale = {
 export const tapScale = {
   scale: 0.9,
 };
+
+export const hoverRotateScale = {
+  rotate: [0, 45, 90, 135, 180, 135, 90, 45, 0],
+  transition: { duration: '300ms' },
+};
+
+export const hoverSlideUp = {
+  y: [0, 30],
+  transition: { duration: '300ms' },
+};

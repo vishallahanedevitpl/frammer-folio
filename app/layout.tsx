@@ -6,6 +6,7 @@ import TopLeftImg from '@/components/TopLeftImg';
 import Nav from '@/components/Nav';
 import Header from '@/components/Header';
 import Transition from '@/components/Transition';
+import FollowPointer from '@/components/FollowPointer';
 
 const inter = Inter({ subsets: ['latin'] });
 const sora = Sora({
@@ -40,6 +41,7 @@ export default function RootLayout({
           </div>
         </div>
         {/* </AnimatePresence> */}
+        <FollowPointer />
       </body>
     </html>
   );

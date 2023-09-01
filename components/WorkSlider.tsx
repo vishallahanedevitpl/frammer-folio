@@ -2,13 +2,14 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper';
 import React from 'react';
-import { RxArrowTopRight } from 'react-icons/rx';
+import { motion } from 'framer-motion';
 import { BsArrowRight } from 'react-icons/bs';
 
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import Image from 'next/image';
+import { hoverScale } from '@/app/variants';
 
 // data
 const workSlides = {
@@ -73,7 +74,10 @@ export default function WorkSlider() {
                 key={i + 'imgsld' + index}
                 className="relative rounded-lg overflow-hidden flex items-center justify-center group"
               >
-                <div className="flex items-center justify-center relative overflow-hidden group">
+                <motion.div
+                  whileHover={hoverScale}
+                  className="flex items-center justify-center relative overflow-hidden group"
+                >
                   <Image
                     src={img.path}
                     width={500}
@@ -92,7 +96,7 @@ export default function WorkSlider() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             ))}
           </div>
