@@ -18,6 +18,7 @@ export default function ProjectsBtn() {
           stiffness: 100,
           restDelta: 0.001,
         },
+        delay: 1,
       }}
       className="mx-auto xl:mx-0"
     >
